@@ -1,0 +1,36 @@
+---
+import '../styles/global.css';
+interface Props { title?: string; description?: string }
+const { title, description = 'Elijah Palmer — Information Systems student at BYU and Automation Consultant at SOLVD. Salesforce, automation, and healthcare operations.' } = Astro.props;
+const pageTitle = title ? `${title} · Elijah Palmer` : 'Elijah Palmer';
+const path = Astro.url.pathname;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{pageTitle}</title>
+  <meta name="description" content={description}>
+  <link rel="icon" href="/assets/headshot.png">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">Elijah Palmer</a>
+    <nav>
+      <a href="/#about">About</a>
+      <a href="/#experience">Experience</a>
+      <a href="/writing" aria-current={path.startsWith('/writing') ? 'page' : undefined}>Writing</a>
+      <a href="/projects" aria-current={path.startsWith('/projects') ? 'page' : undefined}>Projects</a>
+      <a href="/#contact">Contact</a>
+      <a class="btn small" href="/assets/Elijah-Palmer-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </header>
+  <main id="top">
+    <slot />
+  </main>
+  <footer>
+    <p>© 2026 Elijah Palmer · Provo, UT · Built with Astro and hosted on GitHub Pages.</p>
+  </footer>
+</body>
+</html>

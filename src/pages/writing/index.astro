@@ -1,0 +1,27 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+const essays = (await getCollection('essays', (e) => e.data.status === 'published'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
+---
+<Base title="Writing" description="Essays Elijah Palmer writes by hand about what he's learning, each paired with a project.">
+  <section>
+    <h1>Writing</h1>
+    <p class="lede">I write these by hand on an iPad first, because explaining something in my own words is how I find out whether I understand it. Each one is paired with a project that puts the idea to work.</p>
+    {essays.length === 0 ? <p class="muted">First essay coming soon.</p> : (
+      <ul class="essay-list">
+        {essays.map((e) => (
+          <li>
+            <span class="when">{fmt(e.data.date)}</span>
+            <div>
+              <a href={`/writing/${e.id}`}><strong>{e.data.title}</strong></a>
+              {e.data.topic && <span class="pill-inline">{e.data.topic}</span>}
+              {e.data.summary && <p>{e.data.summary}</p>}
+            </div>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+</Base>

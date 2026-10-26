@@ -1,0 +1,22 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const tagLabel = { building: 'Building now', done: 'Done', client: 'Client work', coming: 'Coming' };
+---
+<Base title="Projects" description="Projects by Elijah Palmer: automation, Salesforce, and applied AI.">
+  <section>
+    <h1>Projects</h1>
+    <p class="lede">Each project gets a write-up covering the problem, the decisions, the tools, and what I'd change.</p>
+    <div class="cards">
+      {projects.map((p) => (
+        <article class="card">
+          <span class={`tag ${p.data.status}`}>{tagLabel[p.data.status]}</span>
+          <h3><a href={`/projects/${p.id}`}>{p.data.title}</a></h3>
+          <p>{p.data.summary}</p>
+          <p class="stack">{p.data.stack.join(' · ')}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</Base>

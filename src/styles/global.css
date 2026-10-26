@@ -134,3 +134,27 @@ footer {
   .topbar nav a { font-size: .85rem; }
   .lede { font-size: 1.05rem; }
 }
+
+/* ---- Added with the Astro port: writing + project pages ---- */
+.topbar nav a[aria-current="page"] { font-weight: 600; color: var(--navy); }
+.essay-list { list-style: none; padding: 0; margin: 0; }
+.essay-list li { display: grid; grid-template-columns: 120px 1fr; gap: 1.25rem; padding: .9rem 0; border-bottom: 1px solid var(--line); }
+.essay-list li:last-child { border-bottom: 0; }
+.essay-list .when { color: var(--muted); font-size: .9rem; padding-top: .15rem; }
+.essay-list p { margin: .2rem 0 0; color: #2e3947; font-size: .95rem; }
+.pill-inline { margin-left: .5rem; font-size: .75rem; padding: .15rem .55rem; border-radius: 999px; background: #e9f0f9; color: var(--navy); border: 1px solid #d4e1f2; vertical-align: middle; }
+.prose { max-width: 44rem; padding-top: 2.5rem; }
+.prose h1 { font-size: clamp(1.9rem, 4vw, 2.6rem); margin-bottom: 1rem; }
+.prose h2 { border-bottom: 0; margin-top: 2rem; }
+.prose h3 { margin-top: 1.5rem; }
+.prose p, .prose li { font-size: 1.05rem; }
+.prose blockquote { margin: 1rem 0; padding: .5rem 1rem; border-left: 3px solid var(--accent); color: var(--muted); }
+.prose pre { background: #0f2a4a; color: #e6edf5; padding: 1rem; border-radius: 8px; overflow-x: auto; font-size: .9rem; }
+.prose code { font-size: .92em; }
+.prose :not(pre) > code { background: #eef1f5; padding: .1em .35em; border-radius: 4px; }
+.prose img { max-width: 100%; height: auto; border-radius: 8px; }
+.callout { background: #e9f0f9; border: 1px solid #d4e1f2; border-radius: 10px; padding: .8rem 1rem; margin: 0 0 1.5rem; font-size: .95rem; }
+.back { margin-top: 2.5rem; }
+.tag.done { background: #e4f4ea; color: var(--green); }
+.card h3 a { color: var(--navy); }
+@media (max-width: 640px) { .essay-list li { grid-template-columns: 1fr; gap: .2rem; } }
