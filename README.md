@@ -10,7 +10,7 @@ Live at https://ewpalmer0707.github.io.
   - `src/content/essays/*.md` — essays. Only `status: published` entries are built. `project:` links an essay to the project that proves it.
   - `src/content/projects/*.md` — project write-ups. `essay:` links back to the essay it came from. Cards on the home page come from here.
 - **`src/content/` is an Obsidian vault.** Open it in Obsidian to edit essays; `.obsidian/` is git-ignored.
-- **Essays start as handwriting.** I write on an iPad in Apple Notes, export to iCloud Drive/Learning/inbox, and [learning-pipeline](https://github.com/ewpalmer0707/learning-pipeline) transcribes each scan into a draft here. I edit, flip `status: published`, push.
+- **Essays start as handwriting.** I write on an iPad in Apple Notes, export to iCloud Drive/Learning/inbox, and [learning-pipeline](https://github.com/ewpalmer0707/career-booster) transcribes each scan into a draft here. I edit, flip `status: published`, push.
 
 ## Working on it
 
